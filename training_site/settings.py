@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -134,3 +135,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+
+# Production settings added by heroku-django
+#STATIC_ROOT = BASE_DIR / "staticfiles"
+# Whitenoise configured for static assets
+
+# command to pull all static files into the directory above. Ran during deployment
+# python manage.py collectstatic
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())

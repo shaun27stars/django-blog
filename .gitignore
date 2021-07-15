@@ -10,4 +10,5 @@ media
 *.py[cod] 
 *$py.class 
 
-
+# venv
+django_training_site

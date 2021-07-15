@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import django_heroku
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^sgdhxm-3$%c*!!7x^*t$$%+%3+573@vj&91%m%dairoam=3t-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
@@ -139,6 +140,7 @@ MEDIA_URL = '/media/'
 
 # Production settings added by heroku-django
 #STATIC_ROOT = BASE_DIR / "staticfiles"
+# DATABASES = {..}
 # Whitenoise configured for static assets
 
 # command to pull all static files into the directory above. Ran during deployment
